@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '2.2.1'
+sourceCompatibility = '11'
+
+// Explicitly use only Maven Central, ignore any corporate repositories
+repositories {
+    mavenCentral()
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Fail fast on version conflicts
+        failOnVersionConflict()
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
